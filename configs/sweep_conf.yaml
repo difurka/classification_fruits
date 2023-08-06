@@ -1,0 +1,23 @@
+command:
+  - ${env}
+  - python3
+  - ${program}
+  - ${args}
+method: bayes
+metric:
+  name: val_acc_epoch
+  goal: maximize
+parameters:
+  batch_size:
+    distribution: int_uniform
+    max: 64
+    min: 2
+  lr:
+    distribution: uniform
+    max: 0.002
+    min: 0.0005
+  seed:
+    distribution: int_uniform
+    max: 84
+    min: 21
+program: train.py
